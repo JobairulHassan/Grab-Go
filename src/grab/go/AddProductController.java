@@ -135,15 +135,6 @@ public class AddProductController implements Initializable {
 }
     @FXML
     private void Reset_Pro(ActionEvent event) {
-    Pro_id.clear();
-    Pro_name.clear();
-    Shelf_No.setItems(ShelfAll);
-    MFG.setValue(null);
-    Expire.setValue(null);
-    Price.clear();
-    Ava_Stock.setSelected(false);
-    
-    
     }
     
 }

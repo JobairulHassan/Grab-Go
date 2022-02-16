@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -63,10 +62,5 @@
             <Font name="System Italic" size="24.0" />
          </font>
       </Text>
-      <JFXButton layoutX="54.0" layoutY="647.0" onAction="#logout" prefHeight="34.0" prefWidth="76.0" style="-fx-background-color: #17B287;" text="Log Out" textFill="WHITE">
-         <font>
-            <Font name="Bodoni MT Condensed Bold" size="18.0" />
-         </font>
-      </JFXButton>
    </children>
 </AnchorPane>

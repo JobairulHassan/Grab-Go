@@ -80,14 +80,6 @@ public class AdminHomePageController implements Initializable {
          Parent pane=FXMLLoader.load(getClass().getResource("Customer_Mng.fxml"));
                homePage.getChildren().setAll(pane);
     }
-
-    @FXML
-    private void logout(ActionEvent event) throws IOException {
-    
-     Parent pane=FXMLLoader.load(getClass().getResource("LoginPage.fxml"));
-               homePage.getChildren().setAll(pane);
-    
-    }
     }
     
 
