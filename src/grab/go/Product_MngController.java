@@ -87,6 +87,13 @@ public class Product_MngController implements Initializable {
         
         
     }
+
+    @FXML
+    private void Expired_Product(ActionEvent event) throws IOException {
+    Parent pane=FXMLLoader.load(getClass().getResource("Expired_DATE_Handle.fxml"));
+                 AddProductHbox.getChildren().setAll(pane);
+   
+    }
     
    
     

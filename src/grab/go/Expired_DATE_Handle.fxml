@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="568.0" prefWidth="1012.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="grab.go.Expired_DATE_HandleController">
+   <children>
+      <TableView fx:id="ProductTable" layoutY="25.0" prefHeight="493.0" prefWidth="1012.0">
+         <columns>
+            <TableColumn fx:id="ProductIdCol" prefWidth="124.0" text="Product Id" />
+            <TableColumn fx:id="ProductName" prefWidth="140.0" text="Product Name" />
+            <TableColumn fx:id="Blockno" prefWidth="124.0" text="Block No" />
+            <TableColumn fx:id="ShelfNumber" prefWidth="124.0" text="Shelf Number" />
+            <TableColumn fx:id="ShelfROw" prefWidth="124.0" text="Shelf Row" />
+            <TableColumn fx:id="ShelfColumn" prefWidth="124.0" text="Shelf Column" />
+            <TableColumn fx:id="MFG" prefWidth="137.0" text="MFG DATE" />
+            <TableColumn fx:id="EXP" prefWidth="111.0" text="Expire Date" />
+         </columns>
+      </TableView>
+      <JFXButton layoutX="936.0" layoutY="518.0" onAction="#delete" prefHeight="31.0" prefWidth="76.0" style="-fx-background-color: Red;" text="Delete" textFill="WHITE" />
+   </children>
+</AnchorPane>

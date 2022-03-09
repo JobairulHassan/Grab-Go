@@ -5,7 +5,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" fx:id="updateProAnc" prefHeight="460.0" prefWidth="1018.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="grab.go.Update_ProductController">
+<AnchorPane id="AnchorPane" fx:id="updateProAnc" prefHeight="460.0" prefWidth="1018.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="grab.go.Update_ProductController">
    <children>
       <JFXTextField fx:id="Pro_id" alignment="CENTER" editable="false" labelFloat="true" layoutX="107.0" layoutY="163.0" prefHeight="25.0" prefWidth="236.0" promptText="Product Id" />
       <JFXTextField fx:id="Pro_name" alignment="CENTER" editable="false" labelFloat="true" layoutX="107.0" layoutY="230.0" prefHeight="25.0" prefWidth="236.0" promptText="Product Name" />
@@ -13,7 +13,7 @@
       <JFXTextField fx:id="Price" labelFloat="true" layoutX="560.0" layoutY="326.0" prefHeight="25.0" prefWidth="236.0" promptText="Unit Price" />
       <Button fx:id="Update_pro" layoutX="393.0" layoutY="409.0" mnemonicParsing="false" onAction="#Update_productOnAction" prefHeight="37.0" prefWidth="116.0" style="-fx-background-color: #69C8FE;" text="Save" />
       <JFXTextField fx:id="Shelf_No" labelFloat="true" layoutX="560.0" layoutY="147.0" prefHeight="31.0" prefWidth="236.0" promptText="Shelf Numer" />
-      <JFXTextField fx:id="Shelf_row" labelFloat="true" layoutX="560.0" layoutY="199.0" prefHeight="31.0" prefWidth="236.0" promptText="Shelf Row" />
       <JFXTextField fx:id="Shelf_col" labelFloat="true" layoutX="560.0" layoutY="251.0" prefHeight="31.0" prefWidth="236.0" promptText="Shelf Column" />
+      <JFXComboBox fx:id="shelf_roww" labelFloat="true" layoutX="558.0" layoutY="199.0" prefHeight="31.0" prefWidth="236.0" promptText="Shelf Row" />
    </children>
 </AnchorPane>

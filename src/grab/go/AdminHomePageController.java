@@ -77,7 +77,7 @@ public class AdminHomePageController implements Initializable {
 
     @FXML
     private void cus_mng(MouseEvent event) throws IOException {
-         Parent pane=FXMLLoader.load(getClass().getResource("Customer_Mng.fxml"));
+         Parent pane=FXMLLoader.load(getClass().getResource("Customer_Mng.fxml")); //Customer_Mng.fxml
                homePage.getChildren().setAll(pane);
     }
 

@@ -7,7 +7,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" fx:id="Product_Page" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="grab.go.Product_MngController">
+<AnchorPane id="AnchorPane" fx:id="Product_Page" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="grab.go.Product_MngController">
    <children>
       <AnchorPane layoutX="-5.0" prefHeight="144.0" prefWidth="1290.0" style="-fx-background-color: #2D287A;">
          <children>
@@ -23,10 +23,11 @@
             </Text>
          </children>
       </AnchorPane>
-      <JFXButton fx:id="AddProductButton" layoutX="84.0" layoutY="220.0" onAction="#AddProductButton" prefHeight="31.0" prefWidth="145.0" style="-fx-background-color: #69C8FE;" text="Add Product" />
-      <JFXButton fx:id="ShowProduct" layoutX="84.0" layoutY="280.0" onMouseClicked="#ShowProduct" prefHeight="31.0" prefWidth="145.0" style="-fx-background-color: #69C8FE;" text="Show Product" />
-      <JFXButton fx:id="Shelf_Mng" layoutX="84.0" layoutY="340.0" onMouseClicked="#Shelf_Mng" prefHeight="31.0" prefWidth="145.0" style="-fx-background-color: #69C8FE;" text="Shelf Management" />
+      <JFXButton fx:id="AddProductButton" layoutX="71.0" layoutY="219.0" onAction="#AddProductButton" prefHeight="40.0" prefWidth="158.0" style="-fx-background-color: #69C8FE;" text="Add Product" />
+      <JFXButton fx:id="ShowProduct" layoutX="71.0" layoutY="282.0" onMouseClicked="#ShowProduct" prefHeight="40.0" prefWidth="158.0" style="-fx-background-color: #69C8FE;" text="Show Product" />
+      <JFXButton fx:id="Shelf_Mng" layoutX="71.0" layoutY="343.0" onMouseClicked="#Shelf_Mng" prefHeight="40.0" prefWidth="158.0" style="-fx-background-color: #69C8FE;" text="Shelf Management" />
       <HBox fx:id="AddProductHbox" layoutX="253.0" layoutY="173.0" prefHeight="526.0" prefWidth="1020.0" />
       <Button fx:id="P_Back" layoutX="84.0" layoutY="637.0" mnemonicParsing="false" onAction="#P_Back" style="-fx-background-color: #69C8FE;" text="Back" />
+      <JFXButton layoutX="71.0" layoutY="407.0" onAction="#Expired_Product" prefHeight="40.0" prefWidth="158.0" style="-fx-background-color: #69C8FE;" text="Upcoming Expired Product" />
    </children>
 </AnchorPane>

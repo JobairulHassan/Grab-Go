@@ -5,6 +5,8 @@
  */
 package grab.go;
 
+import java.time.LocalDate;
+
 /**
  *
  * @author FUJITSU
@@ -17,6 +19,35 @@ public class ShelfManage {
     int Shelf_row,Shelf_col,OnShelf_quantity,addProQty;
     String Stock_Con;
     String Add_sts;
+    LocalDate MFG_Date;
+    LocalDate Exp_Date;
+
+    public ShelfManage(String Product_Id, String Product_Name, String Block_no, String Shelf_no, int Shelf_row, int Shelf_col, LocalDate MFG_Date, LocalDate Exp_Date) {
+        this.Product_Id = Product_Id;
+        this.Product_Name = Product_Name;
+        this.Block_no = Block_no;
+        this.Shelf_no = Shelf_no;
+        this.Shelf_row = Shelf_row;
+        this.Shelf_col = Shelf_col;
+        this.MFG_Date = MFG_Date;
+        this.Exp_Date = Exp_Date;
+    }
+
+    public LocalDate getMFG_Date() {
+        return MFG_Date;
+    }
+
+    public void setMFG_Date(LocalDate MFG_Date) {
+        this.MFG_Date = MFG_Date;
+    }
+
+    public LocalDate getExp_Date() {
+        return Exp_Date;
+    }
+
+    public void setExp_Date(LocalDate Exp_Date) {
+        this.Exp_Date = Exp_Date;
+    }
 
     public ShelfManage() {
     }

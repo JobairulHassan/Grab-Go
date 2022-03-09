@@ -6,8 +6,10 @@
 package grab.go;
 
 import DatabaseConnection.DBconnection;
+import Exceptions.NullValueException;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
+import static grab.go.AddEmployeeController.isNumeric;
 import static grab.go.Show_ProductController.productList;
 import java.net.URL;
 import java.sql.Date;
@@ -85,12 +87,27 @@ public class Add_ProductStockController implements Initializable {
     } 
 
    
-    
+    private boolean validateFields() {
+        try {
+            if (Stock_Product.getText().isEmpty() || Product_Quantity.getText().isEmpty() || Upcoming_Quantity.getText().isEmpty() || ProductStock_Id.getText().isEmpty()
+                    ) {
+
+                //Alert Message
+                throw new NullValueException("Information Missing!!!", "Please provide all the informations properly.");
+            }
+        } catch (NullValueException e) {
+            return false;
+        }
+        return true;
+    }
+
     
     
     
     @FXML
     private void Save_ProductStock(ActionEvent event) throws ClassNotFoundException, SQLException {
+         if (validateFields())
+         {
          String StockID=ProductStock_Id.getText();
          String StockProduct=  Stock_Product.getText();
          String  ProductQuantity=  Product_Quantity.getText() ;  
@@ -100,7 +117,7 @@ public class Add_ProductStockController implements Initializable {
        Stock st=new Stock(StockID,StockProduct, ProductQuantity,UpcomingQuantity );
         System.out.println(st);
         insertProduct(st);
-         
+         }  
          
     }
 

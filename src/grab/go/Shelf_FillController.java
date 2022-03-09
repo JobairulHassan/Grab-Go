@@ -9,8 +9,11 @@ import DatabaseConnection.DBconnection;
 import com.jfoenix.controls.JFXButton;
 import static grab.go.Shelf_MngController.Shelf_productMngList;
 import java.net.URL;
+import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -83,6 +86,7 @@ public class Shelf_FillController implements Initializable {
         Shelf_mngTable.setItems(Shelf_productMngList);
     }
 
+
     public ObservableList<ShelfManage> getAllShelfProduct() throws SQLException, ClassNotFoundException {
         ObservableList<ShelfManage> ShelfProductList = FXCollections.observableArrayList();
         DBconnection dbc = new DBconnection();
@@ -114,6 +118,7 @@ public class Shelf_FillController implements Initializable {
 
     @FXML
     private void updateStatusOnAction(MouseEvent event) throws ClassNotFoundException, SQLException {
+
         ObservableList<ShelfManage> selectedProduct = FXCollections.observableArrayList();
         selectedProduct = Shelf_mngTable.getSelectionModel().getSelectedItems();
 

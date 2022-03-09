@@ -6,13 +6,19 @@
 package grab.go;
 
 import DatabaseConnection.DBconnection;
+import Exceptions.NullValueException;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
+import com.jfoenix.validation.NumberValidator;
+import com.jfoenix.validation.RegexValidator;
+import static grab.go.AddEmployeeController.isNumeric;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -54,14 +60,100 @@ public class Add_CustomerController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         MembershipType.setItems(typeall);
         
+         
+         NumberValidator numValidator=new NumberValidator();
+        phone.getValidators().add(numValidator);
+        numValidator.setMessage("add only 11 digits of your phone number");
+        phone.focusedProperty().addListener(new ChangeListener<Boolean>(){
+            @Override
+            public void changed(ObservableValue<? extends Boolean> ov, Boolean t, Boolean t1) {
+                if(!t1){
+                   phone.validate();
+                    
+                }else{
+                    phone.setText("");
+                }   
+            }
+       });
         
+       RegexValidator validate = new RegexValidator();
+       validate.setRegexPattern("[A-Za-z\\s]+");
+       cus_name.setValidators(validate);
+       cus_name.getValidators().get(0).setMessage("Name Should be contain only Alphabets");
+       
+       cus_name.focusedProperty().addListener(new ChangeListener<Boolean>(){
+            @Override
+            public void changed(ObservableValue<? extends Boolean> ov, Boolean t, Boolean t1) {
+                if(!t1){
+                    cus_name.validate();
+                }  
+            }
+       });
+       
+        
+  
+
+    
+     
+
+        
+        
+        
+  
+        
+        
+        
+     
         // TODO
     }  
+    
+    
+    
+     @FXML
+    
+    
+     
+     
+     public static boolean isNumerics(String str) { 
+        try {  
+                Double.parseDouble(str);  
+                return true;
+        } catch(NumberFormatException e){  
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning");
+            alert.setHeaderText("Number is not valid");
+            alert.setContentText(null);
+            alert.showAndWait();
+            return false;
+        }  
+    }
+     
+      private boolean validatePnums(){
+       if(phone.getText().length()== 11)
+        return true;
+       else
+         return false;
+    }
+    private boolean validateFieldss() {
+        try {
+            if (cus_id.getText().isEmpty() || cus_name.getText().isEmpty() ||cus_add.getText().isEmpty() || email.getText().isEmpty()
+                    ||  phone.getText().isEmpty() ||Credit_cus.getText().isEmpty()) {
 
-    @FXML
+                //Alert Message
+                throw new NullValueException("Information Missing!!!", "Please provide all the informations properly.");
+            }
+        } catch (NullValueException e) {
+            return false;
+        }
+        return true;
+    }
+
+
+ @FXML
+   
     private void save_cus_info(ActionEvent event) throws ClassNotFoundException, SQLException {
         
-        
+        if (validateFieldss()&& isNumerics(phone.getText())&& validatePnums()){
         
        String CustomerId= cus_id.getText() ;
        String CustomerName= cus_name.getText() ; 
@@ -73,8 +165,9 @@ public class Add_CustomerController implements Initializable {
             
      
        Customer cd=new Customer( CustomerId,CustomerName,CustomerAddress, CustomerEmail,CustomerPhone, Membershiptype,Creditcus);
+        insertCustomer(cd);
         System.out.println(cd);
-       insertCustomer(cd);
+      
          cus_id.clear();
          cus_name.clear();
          email.clear();
@@ -82,6 +175,8 @@ public class Add_CustomerController implements Initializable {
          cus_add.clear();
          MembershipType.setItems(typeall);
          Credit_cus.clear();
+        }
+
     }
 
     @FXML
