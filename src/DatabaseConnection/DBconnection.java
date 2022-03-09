@@ -20,23 +20,47 @@ import javax.swing.JOptionPane;
  *
  * @author FUJITSU
  */
-public class DBconnection {
-    private  Statement stmt = null;
-    private Connection connection;
+
+
+//
+
+
+
+//
+
+
+public class  DBconnection {
+   private  Statement stmt = null;
+    private static Connection connection ;
+    
+    public static Connection connectionDatabase() throws ClassNotFoundException, SQLException{
+        System.out.println("DB connection Starting..");
+        Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+        String connectionUrl = "jdbc:sqlserver://localhost:1433;"
+                + "user=sa;password=usafarifa;" 
+                + "databaseName=GrabandGo;";
+        connection = DriverManager.getConnection(connectionUrl);
+        System.out.println("Connected database successfully.........");
+        java.sql.Statement stmt = connection.createStatement();
+        return connection;
+      }
+
+    
+
     
     public void connectToDB() throws ClassNotFoundException, SQLException{
         System.out.println("DB connecting..............");
         Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");   //
-        //Iammad
-      //code 
+        
 
-        String connectionUrl = "jdbc:sqlserver://localhost:1433;user=sa;password=Iammad;" + "databaseName=GrabandGo;";
+        String connectionUrl = "jdbc:sqlserver://localhost:1433;user=sa;password=usafarifa;" + "databaseName=GrabandGo;";
 
 
       
         connection = DriverManager.getConnection(connectionUrl);
         System.out.println("Connected database successfully.........");
         java.sql.Statement stmt = connection.createStatement();
+         
             }
     
     public void disconnectFromDB(){

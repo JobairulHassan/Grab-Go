@@ -48,12 +48,19 @@ public class Update_ProductController implements Initializable {
     ObservableList<String> blocks = FXCollections.observableArrayList(
                   "Block A","Block B","Block C","Block D","Block E"
         );
-    @FXML
-    private JFXTextField Shelf_row;
+    
+    
+    
     @FXML
     private JFXTextField Shelf_col;
     @FXML
     private AnchorPane updateProAnc;
+    @FXML
+    private JFXComboBox<String> shelf_roww;
+   ObservableList<String> Shelf = FXCollections.observableArrayList(
+                  "1","2","3","4","5","6"
+        );
+    
 
     /**
      * Initializes the controller class.
@@ -61,6 +68,7 @@ public class Update_ProductController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         Block_No.setItems(blocks);
+         shelf_roww.setItems(Shelf);
         
         String product_id=Shelf_MngController.sm.Product_Id;
         String product_Name=Shelf_MngController.sm.Product_Name;
@@ -73,7 +81,7 @@ public class Update_ProductController implements Initializable {
         Pro_name.setText(product_Name);
         Block_No.setValue(blockNo);
         Shelf_No.setText(shelfNo);
-        Shelf_row.setText(Integer.toString(shelfRow));
+      shelf_roww.setValue(Integer.toString(shelfRow));
         Shelf_col.setText(Integer.toString(shelfCol));
         
         //unit_price from db
@@ -102,7 +110,10 @@ public class Update_ProductController implements Initializable {
     private void Update_productOnAction(ActionEvent event) throws ClassNotFoundException, SQLException, IOException {
         DBconnection dbc = new DBconnection();
         dbc.connectToDB();
-      String query = "UPDATE Shelf SET Block_shelfNo='"+Shelf_No.getText()+"', Shelf_row="+Shelf_row.getText()+", Shelf_col="+Shelf_col.getText()+", Add_status='No Pending' WHERE ProductID='"+Pro_id.getText()+"'";
+        String row=shelf_roww.getValue();
+        int rn = Integer.parseInt(row);
+        
+      String query = "UPDATE Shelf SET Block_shelfNo='"+Shelf_No.getText()+"', Shelf_row="+rn+", Shelf_col="+Shelf_col.getText()+", Add_status='No Pending' WHERE ProductID='"+Pro_id.getText()+"'";
     
        System.out.println(query);
         //ResultSet dataInserted = dbc.queryToDB(query);
